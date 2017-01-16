@@ -185,10 +185,16 @@ This is an important step and will get you to think about the overall process on
 <br>
 2. Creating an equally wieghted portfolio of: AAPL, GOOG, TSLA, FB and ploting it over period from 2012-12-06 to 2017-01-13
 <br>
+```
+portfolio2 = apply(StockReturns[3000:nrow(StockReturns),c(2:3,5:6)],1,mean)
+names(portfolio2) <- rownames(StockReturns[3000:nrow(StockReturns),c(2:3,5:6)])
+pnl_plot(portfolio2)
+```
+<br>
 ```{r echo=FALSE, comment=NA, warning=FALSE, message=FALSE,results='asis',fig.align='center', fig.height=4,fig.width= 6, fig=TRUE}
-#portfolio2 = apply(StockReturns[3000:3010,],1,mean)
-#names(portfolio2) <- rownames(StockReturns[3000:nrow(StockReturns),])
-#pnl_plot(portfolio2)
+portfolio2 = apply(StockReturns[3000:nrow(StockReturns),c(2:3,5:6)],1,mean)
+names(portfolio2) <- rownames(StockReturns[3000:nrow(StockReturns),c(2:3,5:6)])
+pnl_plot(portfolio2)
 ```
 
 <br>
@@ -229,9 +235,9 @@ myData + StockReturns[1:40,]
 [1] 20
 ```
 <br>
-data entries have been formatted when saved to and retrieved from .csv file. The retrieved data (myData) is table with 1 column and 20 lignes, because the values of data entries for each variable are collated and saved as text. StockReturns[1:20,c("SPY","AAPL")] has 2 columns of numerical data plus a date column. 
+data entries have been formatted when saved to and retrieved from .csv file. The retrieved data (myData) is table of data.frame format with 1 column and 20 lignes, because the values of data entries for each variable are collated and saved as text. StockReturns[1:20,c("SPY","AAPL")] is a matrix and has 2 columns of numerical data plus a date column. 
 <br>
-2. We are adding a table of 1 col and 20 lines where data entries are text with a table of 2 columns (plus date) and 40 lines where data entries are numbers. There should be an error message.
+2. We are adding a data.frame of 1 col and 20 lines where data entries are text with a matrix of 2 columns (plus date) and 40 lines where data entries are numbers. There should be an error message.
 <br>
 
 <hr>
